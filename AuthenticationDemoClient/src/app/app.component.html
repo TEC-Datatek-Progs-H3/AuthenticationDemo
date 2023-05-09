@@ -1,0 +1,16 @@
+<nav class="nav nav-pills">
+  <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+
+  <a routerLink="/admin/admin-hero" class="nav-link" routerLinkActive="active"
+    *ngIf="currentUser != null && currentUser.role == 'Admin'">Admin Hero</a>
+
+  <a *ngIf="currentUser != null && currentUser.id != 0" class="nav-link"
+    [routerLink]="['profile', currentUser.id]">Profile</a>
+
+  <a routerLink="/login" class="nav-link" routerLinkActive="active"
+    *ngIf="currentUser == null || currentUser.id == 0">Login</a>
+
+  <a *ngIf="currentUser != null && currentUser.id != 0" class="nav-link" (click)="logout()">Logout</a>
+</nav>
+
+<router-outlet></router-outlet>
