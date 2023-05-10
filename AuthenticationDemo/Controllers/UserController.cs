@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuthenticationDemoAPI.Controllers;
-[Authorize(Role.Admin)]
+
 [Route("api/[controller]")]
 [ApiController]
 public class UserController : ControllerBase
