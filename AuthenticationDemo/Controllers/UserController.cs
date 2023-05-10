@@ -9,7 +9,7 @@ public class UserController : ControllerBase
 {
     private readonly IUserService _userService;
 
-    public UserController(IUserService userService, IJwtUtils jwtUtils)
+    public UserController(IUserService userService)
     {
         _userService = userService;
     }
@@ -52,7 +52,6 @@ public class UserController : ControllerBase
             return Problem(ex.Message);
         }
     }
-
 
     [Authorize(Role.Admin)]
     [HttpGet]
@@ -108,7 +107,4 @@ public class UserController : ControllerBase
             return Problem(ex.Message);
         }
     }
-
-
-
 }

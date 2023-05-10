@@ -20,20 +20,18 @@ import { User } from './_models/user';
 export class ProfileComponent implements OnInit {
   user: User = { id: 0, email: '', username: '' };
 
-
   constructor(
     private authService: AuthService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-
-  ) {
-
-  }
+  ) { }
 
   ngOnInit() {
     // redirect to home if user is not logged in, or userid not matching userid in url
     this.activatedRoute.paramMap.subscribe(params => {
-      if (this.authService.currentUserValue == null || this.authService.currentUserValue.id == 0 || this.authService.currentUserValue.id != Number(params.get("id"))) {
+      if (this.authService.currentUserValue == null
+        || this.authService.currentUserValue.id == 0
+        || this.authService.currentUserValue.id != Number(params.get("id"))) {
         this.router.navigate(['/']);
       }
       // store user in variable, instaed of having to type authService.currentUserValue all the time
