@@ -21,18 +21,7 @@ import { Hero } from './_models/hero';
 export class FrontpageComponent {
   heroes: Hero[] = [];
   authservice: any = { user: { id: 0 } };
-  constructor(private heroService: HeroService, private router: Router) {
-
-    console.log((this.authservice?.user?.id || 0) > 0);
-    console.log((this.authservice?.user?.id || 0));
-
-    if ((this.authservice.user.id || 0) > 0) {
-      console.log('false');
-    } else {
-      console.log('true');
-
-    }
-  }
+  constructor(private heroService: HeroService, private router: Router) {}
 
   ngOnInit(): void {
     this.heroService.getAll()
