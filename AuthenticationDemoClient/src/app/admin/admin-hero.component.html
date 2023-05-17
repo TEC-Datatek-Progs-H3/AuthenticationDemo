@@ -30,6 +30,11 @@
   </div>
 </div>
 
+<!-- udskriv alle kategorierne og marker dem hvis de er checked... check metoden kunne også være i .ts filen-->
+<div *ngFor="let cat of categories">
+  <input type="checkbox" name="category[]" [checked]="cat.checked"  (change)="marked($event)" value="{{cat.id}}" />
+  {{cat.id}}<br />
+</div>
 
 
 <button (click)="save()" class="btn btn-sm btn-success">Gem</button>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { HeroService } from './_services/hero.service';
 import { Hero } from './_models/hero';
 
@@ -20,8 +20,19 @@ import { Hero } from './_models/hero';
 })
 export class FrontpageComponent {
   heroes: Hero[] = [];
+  authservice: any = { user: { id: 0 } };
+  constructor(private heroService: HeroService, private router: Router) {
 
-  constructor(private heroService: HeroService) { }
+    console.log((this.authservice?.user?.id || 0) > 0);
+    console.log((this.authservice?.user?.id || 0));
+
+    if ((this.authservice.user.id || 0) > 0) {
+      console.log('false');
+    } else {
+      console.log('true');
+
+    }
+  }
 
   ngOnInit(): void {
     this.heroService.getAll()

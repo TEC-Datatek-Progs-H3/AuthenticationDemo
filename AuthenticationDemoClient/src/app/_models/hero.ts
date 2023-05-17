@@ -6,6 +6,6 @@ export interface Hero {
   debutYear: number;
 }
 
-export function ResetHero(): Hero {
+export function resetHero(): Hero {
   return { id: 0, heroName: '', realName: '', place: '', debutYear: 0 };
 }
